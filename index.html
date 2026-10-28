@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Takip Defteri</title>
+<meta name="description" content="Instagram verini yükle; seni geri takip etmeyenleri ve takipten çıkanları gör. Şifre istemez, veri cihazından çıkmaz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Takip Defteri</h1>
+      <p class="lede">Instagram'dan indirdiğin takipçi verisini buraya bırak. Kimin seni geri takip etmediğini ve kimin takipten çıktığını gösteririm. Dondurulmuş hesapları işaretleyip listeden ayırabilirsin.</p>
+      <span class="privacy">● Dosyalar cihazından çıkmaz, şifre istenmez</span>
+    </div>
+    <button class="btn ghost small" id="themeBtn" type="button">Tema: sistem</button>
+  </header>
+
+  <div class="drop" id="drop">
+    <strong>Instagram ZIP dosyasını ya da JSON dosyalarını bırak</strong>
+    <p>ZIP'i açmana gerek yok. Tek tek seçeceksen <code>followers_1.json</code> ve <code>following.json</code> lazım. Takip Defteri yedeğini de buraya bırakabilirsin.</p>
+    <div class="row">
+      <button class="btn" id="pick" type="button">Dosya seç</button>
+      <button class="btn ghost" id="sampleBtn" type="button" hidden>Örneği göster</button>
+      <button class="btn ghost" id="mineBtn" type="button" hidden>Kendi verime dön</button>
+    </div>
+    <input type="file" id="file" accept=".zip,.json,application/zip,application/json" multiple hidden>
+  </div>
+
+  <div id="status" class="status info" hidden></div>
+  <div id="banner" class="banner">Şu an <b>örnek veriler</b> gösteriliyor (6 haftalık kayıt). Kendi dosyanı yükleyince gerçek listen gelir.</div>
+
+  <div class="sel" id="selRow">
+    <label for="curSel">GÖSTERİLEN KAYIT<select id="curSel"></select></label>
+    <label for="cmpSel">ŞUNUNLA KARŞILAŞTIR<select id="cmpSel"></select></label>
+  </div>
+
+  <section class="card" id="chartCard">
+    <div class="card-head">
+      <h2>Takipçi sayın</h2>
+      <div class="legend"><span><i></i>Takipçi</span><span><i class="g"></i>Takip edilen</span></div>
+    </div>
+    <div id="chart"></div>
+    <p class="note" id="chartNote"></p>
+  </section>
+
+  <div class="tiles" id="tiles"></div>
+  <div class="base" id="base"></div>
+
+  <section class="panel" id="results">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="Kullanıcı ara" aria-label="Kullanıcı ara">
+      <select id="sort" aria-label="Sırala">
+        <option value="az">A → Z</option>
+        <option value="za">Z → A</option>
+        <option value="new">En yeni takip</option>
+        <option value="old">En eski takip</option>
+      </select>
+      <span id="reasonWrap" hidden>
+        <select id="reason" aria-label="Kesinliğe göre süz">
+          <option value="all">Hepsi</option>
+          <option value="sure">Hâlâ senin takip ettiklerin</option>
+          <option value="maybe">Diğerleri ve kapalı işaretliler</option>
+        </select>
+      </span>
+      <label class="chk" id="exWrap" hidden><input type="checkbox" id="showEx"> Gizlenenleri de göster</label>
+      <button class="btn ghost small" id="copy" type="button">Kopyala</button>
+      <button class="btn ghost small" id="csv" type="button">CSV indir</button>
+    </div>
+    <p class="hint" id="hint"></p>
+    <div class="renames" id="renames" hidden></div>
+    <div class="count" id="count"></div>
+    <ul class="list" id="list"></ul>
+    <button class="btn ghost more" id="more" type="button" hidden></button>
+  </section>
+
+  <details id="trust">
+    <summary>Bu sonuçlar ne kadar güvenilir?</summary>
+    <p class="hint flush" style="margin-top:10px">Instagram'ın verdiği dosyada bir hesabın dondurulmuş mu yoksa açık mı olduğu yazmıyor. Dondurulmuş hesaplar takip listende kalmaya devam edebiliyor ama seni takip edenler arasında görünmüyor. Bu yüzden "geri takip etmeyenler" ve "takipten çıkanlar" listelerinde kapalı hesaplar da çıkabilir. Bunu dosyadan anlamanın yolu yok, profile bakmak gerekiyor.</p>
+    <ul class="reasons">
+      <li><span class="mini on" style="cursor:default">Hesap kapalı ✓</span><span>Profiline baktın ve "Kullanıcı bulunamadı" ya da benzeri bir şey görüyorsan işaretle. Hesap listelerden gizlenir, takipten çıkmış sayılmaz. Seçimin bu tarayıcıda hatırlanır.</span></li>
+      <li><span class="pill lost">Çıktı ya da hesabı kapalı</span><span>Seni takip etmeyi bırakmış ama hâlâ senin takip listende duruyor. Ya takipten çıkmış ya da hesabını dondurmuş.</span></li>
+      <li><span class="pill warn">Senin listenden de düştü</span><span>İki listeden de gitmiş. Hesabını silmiş, seni engellemiş ya da sen takipten çıkmış olabilirsin.</span></li>
+      <li><span class="pill muted">Belirsiz</span><span>Sen takip etmiyordun, bu yüzden sebebini bilemiyorum.</span></li>
+      <li><span class="pill gain">Geri döndü</span><span>Daha önce de takip ediyordu, bir süre listeden düştü, sonra geri geldi. Genelde hesabını dondurup açanlar.</span></li>
+      <li><span class="pill muted">Ad değiştirdi</span><span>Instagram takip tarihini ad değişse de korur. Aynı tarihli bir hesap gidip başka adla geldiyse aynı kişi sayılır.</span></li>
+    </ul>
+  </details>
+
+  <details id="how">
+    <summary>Verini Instagram'dan nasıl indirirsin</summary>
+    <ol class="steps">
+      <li>Instagram'da profiline git, sağ üstteki menüden <b>Ayarlar ve hareketler</b>'i aç.</li>
+      <li><b>Hesaplar Merkezi → Bilgilerin ve izinlerin → Bilgilerini indir</b>.</li>
+      <li><b>Bilgileri indir veya aktar → Bilgilerinin bir kısmı</b> seç, sadece <b>Takipçiler ve takip edilenler</b>'i işaretle.</li>
+      <li><b>Cihaza indir</b> de. Tarih aralığı <b>Tüm zamanlar</b>, format <b>JSON</b> olsun (HTML değil).</li>
+      <li>Hazır olunca bildirim ve e-posta gelir. ZIP'i indir, buraya bırak.</li>
+      <li>Haftada bir tekrarlarsan grafik ve değişim günlüğü dolar.</li>
+    </ol>
+    <p class="hint flush" style="margin-top:12px"><b>Instagram İngilizceyse:</b> ☰ menü → Accounts Center → Your information and permissions → Download your information → Download or transfer information → Some of your information → Followers and following → Download to device → Date range: All time, Format: JSON → Create files.</p>
+  </details>
+
+  <details id="histBox">
+    <summary>Kayıt geçmişi <span id="histCount"></span></summary>
+    <p class="hint flush" style="margin-top:8px">Her yükleme bu tarayıcıda saklanır. Tarayıcı verisini silersen geçmiş de gider, o yüzden ara sıra yedek al.</p>
+    <div class="hist" id="hist"></div>
+    <div class="backup">
+      <button class="btn ghost small" id="exportBtn" type="button">Yedeği indir</button>
+      <button class="btn ghost small" id="copyBackupBtn" type="button">Yedeği kopyala</button>
+      <button class="btn ghost small" id="importBtn" type="button">Yedekten geri yükle</button>
+      <button class="btn ghost small danger" id="clearBtn" type="button">Tüm geçmişi sil</button>
+      <input type="file" id="importFile" accept=".json,application/json" hidden>
+    </div>
+  </details>
+
+  <footer>Arama için <kbd>/</kbd> · Takip Defteri Instagram ile bağlantılı değildir.</footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="assets/js/parser.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@
 ![Testler](https://img.shields.io/badge/testler-node%20--test-339933?style=flat-square&logo=node.js&logoColor=white)
 ![Lisans: MIT](https://img.shields.io/badge/lisans-MIT-blue?style=flat-square)
 
-<img src="docs/ekran-goruntusu.png" alt="Takip Defteri ana ekranı" width="720">
+<img src="docs/onizleme.svg" alt="Takip Defteri arayüz önizlemesi" width="720">
 
 </div>
 

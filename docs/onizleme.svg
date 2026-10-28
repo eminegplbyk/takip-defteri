@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" width="720" height="520" font-family="Segoe UI, system-ui, -apple-system, sans-serif">
+  <rect width="720" height="520" rx="18" fill="#f5f4f8"/>
+  <text x="36" y="62" font-size="32" font-weight="800" fill="#1d1a2b">Takip Defteri</text>
+  <text x="36" y="90" font-size="14" fill="#6b6680">Instagram verini bırak, kimin takipten çıktığını gör.</text>
+  <rect x="36" y="104" width="246" height="24" rx="12" fill="#e4f4ec"/>
+  <text x="50" y="121" font-size="12" fill="#1f8a5b">● Dosyalar cihazından çıkmaz</text>
+  <rect x="36" y="144" width="648" height="70" rx="14" fill="#fff" stroke="#e3e0ec" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="58" y="174" font-size="15" font-weight="700" fill="#1d1a2b">Instagram ZIP dosyasını buraya bırak</text>
+  <rect x="58" y="184" width="88" height="22" rx="7" fill="#5b3fd6"/>
+  <text x="102" y="199" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Dosya seç</text>
+  <rect x="36" y="230" width="648" height="128" rx="14" fill="#fff" stroke="#e3e0ec"/>
+  <text x="56" y="256" font-size="15" font-weight="700" fill="#1d1a2b">Takipçi sayın</text>
+  <line x1="60" y1="280" x2="664" y2="280" stroke="#e3e0ec"/>
+  <line x1="60" y1="336" x2="664" y2="336" stroke="#e3e0ec"/>
+  <path d="M60 330 L181 318 L302 318 L423 312 L544 292 L664 298 L664 336 L60 336 Z" fill="#ece8fc"/>
+  <path d="M60 286 L181 286 L302 292 L423 292 L544 292 L664 292" fill="none" stroke="#6b6680" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <path d="M60 330 L181 318 L302 318 L423 312 L544 292 L664 298" fill="none" stroke="#5b3fd6" stroke-width="3" stroke-linejoin="round"/>
+  <g fill="#fff" stroke="#5b3fd6" stroke-width="2"><circle cx="60" cy="330" r="4"/><circle cx="181" cy="318" r="4"/><circle cx="302" cy="318" r="4"/><circle cx="423" cy="312" r="4"/><circle cx="544" cy="292" r="4"/></g>
+  <circle cx="664" cy="298" r="6" fill="#5b3fd6"/>
+  <g font-size="12">
+    <rect x="36" y="374" width="153" height="70" rx="12" fill="#fff" stroke="#5b3fd6" stroke-width="2"/>
+    <text x="52" y="408" font-size="28" font-weight="800" fill="#c4314b">2</text><text x="52" y="430" fill="#6b6680">Takipten çıkanlar</text>
+    <rect x="201" y="374" width="153" height="70" rx="12" fill="#fff" stroke="#e3e0ec"/>
+    <text x="217" y="408" font-size="28" font-weight="800" fill="#1f8a5b">1</text><text x="217" y="430" fill="#6b6680">Yeni takipçiler</text>
+    <rect x="366" y="374" width="153" height="70" rx="12" fill="#fff" stroke="#e3e0ec"/>
+    <text x="382" y="408" font-size="28" font-weight="800" fill="#1d1a2b">21</text><text x="382" y="430" fill="#6b6680">Geri takip etmeyenler</text>
+    <rect x="531" y="374" width="153" height="70" rx="12" fill="#fff" stroke="#e3e0ec"/>
+    <text x="547" y="408" font-size="28" font-weight="800" fill="#1d1a2b">19</text><text x="547" y="430" fill="#6b6680">Takip etmediklerin</text>
+  </g>
+  <rect x="36" y="458" width="648" height="44" rx="12" fill="#fff" stroke="#e3e0ec"/>
+  <circle cx="62" cy="480" r="13" fill="#ece8fc"/><text x="62" y="485" font-size="13" font-weight="700" fill="#5b3fd6" text-anchor="middle">E</text>
+  <text x="86" y="485" font-size="14" font-weight="700" fill="#1d1a2b">@ornek.efe</text>
+  <rect x="420" y="469" width="164" height="22" rx="11" fill="#fbe9ec"/>
+  <text x="502" y="484" font-size="12" font-weight="700" fill="#c4314b" text-anchor="middle">Çıktı ya da hesabı kapalı</text>
+  <rect x="592" y="469" width="80" height="22" rx="7" fill="none" stroke="#e3e0ec"/>
+  <text x="632" y="484" font-size="11" font-weight="700" fill="#6b6680" text-anchor="middle">Hesap kapalı</text>
+</svg>

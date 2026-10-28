@@ -1,0 +1,58 @@
+{
+  "relationships_following": [
+    {
+      "title": "ornek.mert",
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/_u/ornek.mert",
+          "timestamp": 1735789600
+        }
+      ]
+    },
+    {
+      "title": "ornek.zeynep",
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/_u/ornek.zeynep",
+          "timestamp": 1735876000
+        }
+      ]
+    },
+    {
+      "title": "ornek.can.y",
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/_u/ornek.can.y",
+          "timestamp": 1735962400
+        }
+      ]
+    },
+    {
+      "title": "ornek.kaan",
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/_u/ornek.kaan",
+          "timestamp": 1736135200
+        }
+      ]
+    },
+    {
+      "title": "ornek.ipek",
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/_u/ornek.ipek",
+          "timestamp": 1736221600
+        }
+      ]
+    },
+    {
+      "title": "ornek.oguz",
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/_u/ornek.oguz",
+          "timestamp": 1736308000
+        }
+      ]
+    }
+  ]
+}
